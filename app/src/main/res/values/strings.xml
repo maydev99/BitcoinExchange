@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BitcoinExchange</string>
+    <string name="company_logo">Company Logo</string>
+    <string name="refresh">Refresh</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exchanges">Exchanges</string>
+    <string name="settings">Settings</string>
+    <string name="est">est.</string>
+</resources>
