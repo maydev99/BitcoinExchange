@@ -35,8 +35,8 @@ class ExchangeFragment : Fragment() {
 
 
 
-        exchangeViewModel.myExchangeData.observe(viewLifecycleOwner, { xData ->
 
+        exchangeViewModel.myExchangeData.observe(viewLifecycleOwner, { xData ->
             xData.let {
                 exchangeAdapter.submitList(it)
             }
@@ -49,6 +49,7 @@ class ExchangeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.exchangeRecyclerView)
         setUpRecyclerView()
+
     }
 
 

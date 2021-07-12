@@ -14,6 +14,9 @@ interface CoinGeckoApi {
     @GET("/api/v3/exchanges?per_page=18&page=1")
     suspend fun getExchanges() : ExchangeData
 
+    @GET("/api/v3/coins/list?include_platform=false")
+    suspend fun getCoinList() : List<CoinListData.CoinListDataItem>
+
 }
 
 object Network {

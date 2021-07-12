@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class ExchangeViewModel(application: Application): AndroidViewModel(application) {
 
-    private val repository = ExchangeRepository(getDatabase(application))
+   // private val repository = ExchangeRepository(getDatabase(application))
     //val xData = repository.myExchangeData
 
     val myExchangeData: LiveData<List<ExchangeEntity>>

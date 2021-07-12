@@ -1,6 +1,9 @@
 package com.bombadu.bitcoinexchange.ui.exchange
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +12,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.bombadu.bitcoinexchange.R
 import com.bombadu.bitcoinexchange.local.ExchangeEntity
 import com.squareup.picasso.Picasso
+import kotlin.math.roundToInt
 
 
 class ExchangeAdapter2 :
@@ -35,20 +40,23 @@ class ExchangeAdapter2 :
         val nameTextView = itemView.findViewById<TextView>(R.id.nameTextView)
         val estTextView = itemView.findViewById<TextView>(R.id.estTextView)
         val volTextView = itemView.findViewById<TextView>(R.id.volumeTextView)
-        val scoreTextView = itemView.findViewById<TextView>(R.id.scoreTextView)
         val rankTextView = itemView.findViewById<TextView>(R.id.rankTextView)
 
         @SuppressLint("SetTextI18n")
         fun bind(item: ExchangeEntity) = with(itemView) {
-            Picasso.get().load(item.imageUrl).into(imageView)
+            //Picasso.get().load(item.imageUrl).into(imageView)
+            imageView.load(item.imageUrl)
             nameTextView.text = item.name
-            estTextView.text = "est. ${item.established}"
-            volTextView.text = item.tradeVolume.toString()
-            scoreTextView.text = item.trustScore.toString()
+            estTextView.text = "Est. ${item.established}"
+            volTextView.text = " Volume: ${item.tradeVolume.roundToInt()}"
             rankTextView.text = item.trustRank.toString()
 
-            /*   setOnClickListener {
-                val intent = Intent(context, PrePlayerDetailActivity::class.java)
+               setOnClickListener {
+                   val intent = Intent(Intent.ACTION_VIEW)
+                   intent.data = Uri.parse(item.url)
+                   context.startActivity(intent)
+
+                /*val intent = Intent(context, PrePlayerDetailActivity::class.java)
                 val bundle = Bundle()
                 bundle.putString("video_url", item.videoUlr)
                 bundle.putString("title", item.title)
@@ -59,9 +67,9 @@ class ExchangeAdapter2 :
                 bundle.putString("release_date", item.releaseDate)
                 bundle.putString("backdrop_url", item.backDropUrl)
                 intent.putExtras(bundle)
-                context.startActivity(intent)
+                context.startActivity(intent)*/
 
-            }*/
+            }
         }
     }
 }

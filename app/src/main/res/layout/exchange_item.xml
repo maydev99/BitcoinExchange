@@ -16,73 +16,74 @@
 
         <ImageView
             android:id="@+id/logoImageView"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            exchangeImage="@{exchangeEntity.imageUrl}"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:contentDescription="@string/company_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background"
-            exchangeImage="@{exchangeEntity.imageUrl}"
-            android:contentDescription="@string/company_logo" />
+            app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/estTextView"
-            tools:text="Est. 2010"
+            style="@style/default_text_style"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:text=""
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/logoImageView"
-            app:layout_constraintStart_toStartOf="@+id/logoImageView"
-            app:layout_constraintTop_toBottomOf="@+id/logoImageView"
-            style="@style/default_text_style" />
+            app:layout_constraintStart_toEndOf="@+id/logoImageView"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+            tools:text="Est. 2010" />
 
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/black"
-            android:textSize="22sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            tools:text="Coinbase"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/logoImageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Coinbase" />
 
         <TextView
             android:id="@+id/volumeTextView"
             style="@style/default_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@+id/logoImageView"
-            app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/estTextView"
+            app:layout_constraintTop_toBottomOf="@+id/estTextView"
             tools:text="Volume: 3325648.0055" />
 
         <TextView
             android:id="@+id/rankTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textColor="@color/black"
-            tools:text="Rank 10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/scoreTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/volumeTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/volumeTextView"
-            tools:text="Score: 8" />
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:text="10" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/black"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="Rank"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

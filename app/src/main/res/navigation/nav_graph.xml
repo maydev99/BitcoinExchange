@@ -9,11 +9,14 @@
     <fragment
         android:id="@+id/exchangeFragment"
         android:name="com.bombadu.bitcoinexchange.ui.exchange.ExchangeFragment"
-        android:label="ExchangeFragment" >
-        <action
-            android:id="@+id/action_exchangeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-    </fragment>
+        android:label="ExchangeFragment" />
+
+    <fragment
+        android:id="@+id/coinsFragment"
+        android:name="com.bombadu.bitcoinexchange.ui.coins.CoinsFragment"
+        android:label="fragment_coins"
+        tools:layout="@layout/fragment_coins" />
+
 
     <fragment
         android:id="@+id/settingsFragment"
