@@ -35,13 +35,8 @@ class CoinsFragment : Fragment() {
     ): View? {
         val binding = FragmentCoinsBinding.inflate(inflater)
 
-        /*coinsViewModel.myCoinData.observe(viewLifecycleOwner, { coinData ->
-            coinData.let {
-                Toast.makeText(requireContext(), "Size: ${coinData.size}", Toast.LENGTH_SHORT).show()
-                coinAdapter.submitList(it)
-            }
 
-        })*/
+
 
         coinsViewModel.myTickerData.observe(viewLifecycleOwner, { tickerData ->
             tickerData.let {

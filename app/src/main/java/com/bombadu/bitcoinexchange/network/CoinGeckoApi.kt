@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 interface CoinGeckoApi {
 
-    @GET("/api/v3/exchanges?per_page=18&page=1")
+    @GET("/api/v3/exchanges?per_page=15&page=1")
     suspend fun getExchanges() : ExchangeData
 
     @GET("/api/v3/coins/list?include_platform=false")

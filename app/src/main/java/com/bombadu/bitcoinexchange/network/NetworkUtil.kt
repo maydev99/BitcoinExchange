@@ -64,8 +64,26 @@ object NetworkUtil {
             val name = nomicsTickerData[i].name
             val price = nomicsTickerData[i].price
             val logoUrl = nomicsTickerData[i].logoUrl
+            val change = nomicsTickerData[i].d.priceChangePct.toDouble()
+            val changePct = nomicsTickerData[i].d.priceChangePct
+            val symbol = nomicsTickerData[i].symbol
+            val status = nomicsTickerData[i].status
+            val timeStamp = nomicsTickerData[i].priceTimestamp
+            val circulatingSupply = nomicsTickerData[i].circulatingSupply
+            val maxSupply = nomicsTickerData[i].maxSupply
+            val marketCap = nomicsTickerData[i].marketCap
+            val rank = nomicsTickerData[i].rank
+            val high = nomicsTickerData[i].high
+            val highTimeStamp = nomicsTickerData[i].highTimestamp
+            val volume = nomicsTickerData[i].d.volume
+            val priceChange = nomicsTickerData[i].d.priceChange
+            val volumeChangePct = nomicsTickerData[i].d.volumeChangePct
+            val marketCapChange = nomicsTickerData[i].d.marketCapChange
+            val marketCapChangePct = nomicsTickerData[i].d.marketCapChangePct
 
-            myList.add(LocalTickerData(id, name, price, logoUrl))
+            myList.add(LocalTickerData(id, name, price, logoUrl, change, changePct, symbol, status,
+            timeStamp, circulatingSupply/*, maxSupply*/, marketCap, rank, high, highTimeStamp,
+            volume, priceChange, volumeChangePct, marketCapChange, marketCapChangePct))
         }
 
         return myList

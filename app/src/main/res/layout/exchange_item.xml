@@ -12,7 +12,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="110dp"
+        android:background="@drawable/white_round_corners"
+        android:layout_margin="8dp"
+        android:elevation="10dp">
 
         <ImageView
             android:id="@+id/logoImageView"
@@ -69,11 +72,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:text="10" />
 
-        <View
+        <!--<View
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent" />-->
 
         <TextView
             android:id="@+id/textView"
