@@ -35,16 +35,51 @@ class CoinDetailActivity : AppCompatActivity() {
         binding.detailNameTextView.text = coinDetail.name
         binding.detailImageView.load(coinDetail.logoUrl, imageLoader)
 
-        val priceRaw = coinDetail.price
-        val price = BigDecimal(priceRaw).setScale(4, RoundingMode.HALF_EVEN).toString()
-        binding.detailPriceTextView.text = "$${price}"
 
-        binding.detailChangeTextView.text = "$${coinDetail.price} / ${coinDetail.changePct}%"
+        //Format Price
+        val priceRaw = coinDetail.price
+        val price = decimalRoundToString(priceRaw, 4)
+
+
+        //Format Change/ Change%
+        val change = decimalRoundToString(coinDetail.change.toString(), 4)
+        val changePctRaw = coinDetail.changePct.toDouble() * 100
+        val changePct = decimalRoundToString(changePctRaw.toString(), 2)
+
+        //Format High
+        val high = decimalRoundToString(coinDetail.high, 2)
+        val highTimeStamp = coinDetail.high_timeStamp
+
+        //Volume Pct
+        val volPctRaw = coinDetail.volume_change_pct.toDouble() * 100
+        val valPct = decimalRoundToString(volPctRaw.toString(), 2)
+
+
+        //Set Views
+        binding.detailPriceTextView.text = "$${price}"
+        binding.detailChangeTextView.text = "$${change} / ${changePct}%"
+        binding.detailSymbolTextView.text = coinDetail.symbol
+        binding.detailCircSupplyTextView.text = coinDetail.circulating_supply
+        binding.detailMarketCapTextView.text = coinDetail.marketCap
+        binding.detailRankTextView.text = coinDetail.rank
+        binding.detailHighTextView.text = "$$high"
+        binding.detailHighTimeStampTextView.text = "($highTimeStamp)"
+        binding.detailVolumeTextView.text = coinDetail.volume
+        binding.detailVolumePctChangeTextView.text = "$valPct%"
+
+
+
+
 
 
 
 
 
         //Toast.makeText(this, "${coinDetail.name}", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun decimalRoundToString(num: String, dec: Int) : String {
+        return BigDecimal(num).setScale(dec, RoundingMode.HALF_EVEN).toString()
+
     }
 }

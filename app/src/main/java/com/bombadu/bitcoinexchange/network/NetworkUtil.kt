@@ -64,7 +64,7 @@ object NetworkUtil {
             val name = nomicsTickerData[i].name
             val price = nomicsTickerData[i].price
             val logoUrl = nomicsTickerData[i].logoUrl
-            val change = nomicsTickerData[i].d.priceChangePct.toDouble()
+            val change = nomicsTickerData[i].d.priceChange.toDouble()
             val changePct = nomicsTickerData[i].d.priceChangePct
             val symbol = nomicsTickerData[i].symbol
             val status = nomicsTickerData[i].status

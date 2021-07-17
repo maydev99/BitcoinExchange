@@ -30,7 +30,7 @@ class CoinsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _myTickerData = MutableLiveData<List<LocalTickerData>>()
 
-    private val tickerList = listOf("BTC, ETH, XRP, DOGE, LTC, LINK, TRX, ADA, BNB, ETC. HEX")
+    private val tickerList = listOf("BTC, ETH, XRP, DOGE, LTC, LINK, TRX, ADA, BNB, ETC, HEX")
 
 
 

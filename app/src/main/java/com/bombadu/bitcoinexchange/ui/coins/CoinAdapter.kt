@@ -55,7 +55,7 @@ class CoinAdapter : ListAdapter<LocalTickerData, CoinAdapter.ItemViewholder>(Dif
         @SuppressLint("SetTextI18n")
         fun bind(item: LocalTickerData) = with(itemView) {
 
-            val pctChange = (item.change) * 100
+            val pctChange = (item.changePct).toDouble() * 100
             val rawPrice = item.price
             val change = BigDecimal(pctChange).setScale(2, RoundingMode.HALF_EVEN).toString()
             val price = BigDecimal(rawPrice).setScale(4, RoundingMode.HALF_EVEN).toString()

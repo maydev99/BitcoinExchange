@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="coinDetailActivity"
             type="com.bombadu.bitcoinexchange.ui.coins.CoinDetailActivity" />
@@ -28,22 +29,25 @@
 
         <TextView
             android:id="@+id/detailNameTextView"
-            android:textSize="35sp"
-            android:layout_marginStart="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Name"
-            app:layout_constraintBottom_toBottomOf="@+id/detailImageView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/detailImageView"
-            app:layout_constraintTop_toTopOf="@+id/detailImageView" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
 
         <TextView
             android:id="@+id/textView3"
             style="@style/detail_info_style"
-            android:text="@string/change_pct"
             android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:text="@string/change_pct"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -51,8 +55,9 @@
         <TextView
             android:id="@+id/textView4"
             style="@style/detail_info_style"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/price"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailImageView" />
 
@@ -62,10 +67,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            tools:text="$123.25"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView4" />
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            tools:text="$123.25" />
 
         <TextView
             android:id="@+id/detailChangeTextView"
@@ -73,9 +78,152 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            tools:text="1231/ -1.32%"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            tools:text="1231/ -1.32%" />
+
+        <TextView
+            android:id="@+id/detailSymbolTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/detailNameTextView"
+            app:layout_constraintStart_toStartOf="@+id/detailNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/detailNameTextView"
+            tools:text="BCT" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/circulating_supply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/detailCircSupplyTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5"
+            tools:text="12000000" />
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/market_cap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/detailMarketCapTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            tools:text="22135151" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/rank"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/detailRankTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/high"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/detailHighTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toTopOf="@+id/textView11"
+            tools:text="$50000" />
+
+        <TextView
+            android:id="@+id/detailHighTimeStampTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detailHighTextView"
+            app:layout_constraintStart_toEndOf="@+id/detailHighTextView"
+            app:layout_constraintTop_toTopOf="@+id/detailHighTextView"
+            tools:text="1-1-2021" />
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/volume"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/detailVolumeTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/textView14"
+            tools:text="123445" />
+
+        <TextView
+            android:id="@+id/detailVolumePctChangeTextView"
+            style="@style/detail_info_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="-1.5%"
+            app:layout_constraintBottom_toBottomOf="@+id/detailVolumeTextView"
+            app:layout_constraintStart_toEndOf="@+id/detailVolumeTextView"
+            app:layout_constraintTop_toTopOf="@+id/detailVolumeTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
