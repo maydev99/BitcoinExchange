@@ -15,7 +15,6 @@ data class LocalTickerData(
     val status: String,
     val timeStamp: String,
     val circulating_supply: String,
-    /*val maxSupply: String,*/
     val marketCap: String,
     val rank: String,
     val high: String,

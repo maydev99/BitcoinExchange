@@ -15,36 +15,15 @@ import kotlinx.coroutines.launch
 
 class ExchangeViewModel(application: Application): AndroidViewModel(application) {
 
-   // private val repository = ExchangeRepository(getDatabase(application))
-    //val xData = repository.myExchangeData
-
-    val myExchangeData: LiveData<List<ExchangeEntity>>
-        get() = _myExchangeData
-
-    private val _myExchangeData = MutableLiveData<List<ExchangeEntity>>()
+    private val repository = ExchangeRepository(getDatabase(application))
+    val exchangeData = repository.xData
 
 
-    init {
-        getExchanges()
-
-    }
-
-    private fun getExchanges() {
+    fun refreshData() {
         viewModelScope.launch {
-
-            try {
-                val networkData = Network.api.getExchanges()
-                //val convertedData = NetworkUtil.convertExchangeApiData(networkData)
-                _myExchangeData.value = NetworkUtil.convertExchangeApiData(networkData)
-
-            } catch (e: Exception) {
-                Log.e(TAG, "No Data")
-            }
-
-
+            repository.refreshExchangeData()
         }
     }
-
 
 
     companion object {

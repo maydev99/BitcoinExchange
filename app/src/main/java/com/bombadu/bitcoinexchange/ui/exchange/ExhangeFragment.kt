@@ -2,9 +2,7 @@ package com.bombadu.bitcoinexchange.ui.exchange
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,12 +29,14 @@ class ExchangeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = exchangeViewModel
 
+        setHasOptionsMenu(true)
 
 
 
 
 
-        exchangeViewModel.myExchangeData.observe(viewLifecycleOwner, { xData ->
+
+        exchangeViewModel.exchangeData.observe(viewLifecycleOwner, { xData ->
             xData.let {
                 exchangeAdapter.submitList(it)
             }
@@ -63,6 +63,20 @@ class ExchangeFragment : Fragment() {
 
     companion object {
         val TAG = ExchangeFragment::class.java.simpleName
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.exchange_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_refresh -> {
+                exchangeViewModel.refreshData()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

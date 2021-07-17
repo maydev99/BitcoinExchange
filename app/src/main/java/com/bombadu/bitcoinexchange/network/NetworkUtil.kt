@@ -6,6 +6,8 @@ import com.bombadu.bitcoinexchange.local.LocalTickerData
 
 object NetworkUtil {
 
+
+
     fun convertExchangeApiData(exchangeData: ExchangeData): List<ExchangeEntity> {
         val myList = mutableListOf<ExchangeEntity>()
 
@@ -70,7 +72,6 @@ object NetworkUtil {
             val status = nomicsTickerData[i].status
             val timeStamp = nomicsTickerData[i].priceTimestamp
             val circulatingSupply = nomicsTickerData[i].circulatingSupply
-            val maxSupply = nomicsTickerData[i].maxSupply
             val marketCap = nomicsTickerData[i].marketCap
             val rank = nomicsTickerData[i].rank
             val high = nomicsTickerData[i].high
@@ -82,7 +83,7 @@ object NetworkUtil {
             val marketCapChangePct = nomicsTickerData[i].d.marketCapChangePct
 
             myList.add(LocalTickerData(id, name, price, logoUrl, change, changePct, symbol, status,
-            timeStamp, circulatingSupply/*, maxSupply*/, marketCap, rank, high, highTimeStamp,
+            timeStamp, circulatingSupply, marketCap, rank, high, highTimeStamp,
             volume, priceChange, volumeChangePct, marketCapChange, marketCapChangePct))
         }
 

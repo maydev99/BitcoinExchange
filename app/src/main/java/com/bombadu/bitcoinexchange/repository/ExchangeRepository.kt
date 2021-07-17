@@ -13,29 +13,17 @@ import kotlinx.coroutines.withContext
 
 class ExchangeRepository(private val database: LocalDatabase) {
 
-
-
-
-/*
-    val myExchangeData: LiveData<List<ExchangeEntity>>
-    get() = _myExchangeData
-
-    private val _myExchangeData = MutableLiveData<List<ExchangeEntity>>()
-
-
-
-
+    val xData: LiveData<List<ExchangeEntity>> = database.exchangeDao.getAllExchanges()
 
 
     suspend fun refreshExchangeData() {
         try {
             withContext(Dispatchers.IO) {
                 val networkData = Network.api.getExchanges()
-
                 val convertedData = NetworkUtil.convertExchangeApiData(networkData)
-                Log.i(TAG, "XXXXXXXXXXXXXX: ${convertedData[1].established}")
-                _myExchangeData.value = convertedData
-
+                for (i in convertedData.indices) {
+                    database.exchangeDao.insertExchanges(convertedData[i])
+                }
 
             }
 
@@ -45,7 +33,7 @@ class ExchangeRepository(private val database: LocalDatabase) {
                 Log.e(TAG, "Data request failed")
             }
         }
-    }*/
+    }
 
     companion object {
         val TAG = ExchangeRepository::class.java.simpleName
